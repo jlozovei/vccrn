@@ -12,12 +12,14 @@
     "preview": "vite preview",
     "test": "vitest run --coverage",
     "test:interactive": "vitest",
-    "start": "npm run dev"
+    "start": "npm run dev",
+    "update": "npx msw init public --no-save"
   },
   "dependencies": {
     "@vccrn/assets": "0.1.0",
     "@vccrn/tokens": "0.1.0",
     "@vccrn/validators": "0.1.0",
+    "msw": "^1.0.1",
     "polished": "^4.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -37,5 +39,8 @@
     "vite": "latest",
     "vite-plugin-svgr": "^2.4.0",
     "vitest": "latest"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }
