@@ -1,4 +1,4 @@
-import { ReactComponent as BlankAlert } from '@vccrn/assets/blank-alert.svg';
+import blankAlert from '@vccrn/assets/blank-alert.svg';
 
 import { Logo } from '@/components';
 
@@ -25,7 +25,7 @@ const Footer = () => {
           </StyledResponsible>
 
           <StyledNotice>
-            <BlankAlert />
+            <img src={blankAlert} alt="" />
 
             <p>
               Atenção: este site não oferece tratamento ou aconselhamento imediato para pessoas em

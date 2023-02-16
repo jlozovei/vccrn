@@ -47,7 +47,8 @@ const StyledNotice = styled.div`
   flex-basis: 60%;
   width: 60%;
 
-  svg {
+  img {
+    width: 38px;
     margin-right: 24px;
   }
 

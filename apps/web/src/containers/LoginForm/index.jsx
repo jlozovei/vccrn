@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { isValidEmail, isValidDocument } from '@vccrn/validators';
-import { ReactComponent as User } from '@vccrn/assets/user.svg';
-import { ReactComponent as Psychologist } from '@vccrn/assets/psychologist.svg';
+import userIcon from '@vccrn/assets/user.svg';
+import psychologistIcon from '@vccrn/assets/psychologist.svg';
 
 import { login } from '@/services';
 import { documentMask } from '@/utils';
@@ -76,7 +76,7 @@ const LoginForm = () => {
                   onClick={() => updateProfile('psychologist')}
                   active={profile !== 'user'}
                 >
-                  {/* <Psychologist /> */}
+                  <img src={psychologistIcon} alt="Psicólogo" />
                   Psicólogo
                 </StyledProfileItem>
 
@@ -84,7 +84,7 @@ const LoginForm = () => {
                   onClick={() => updateProfile('user')}
                   active={profile === 'user'}
                 >
-                  {/* <User /> */}
+                  <img src={userIcon} alt="Paciente" />
                   Paciente
                 </StyledProfileItem>
               </StyledProfile>
