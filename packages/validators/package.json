@@ -7,9 +7,14 @@
   "author": "Julio Lozovei <jlozovei@gmail.com> (https://jlozovei.dev)",
   "license": "GPL-3.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest run --coverage",
+    "test:interactive": "vitest"
   },
   "dependencies": {
     "validation-br": "^1.4.4"
+  },
+  "devDependencies": {
+    "@vitest/coverage-c8": "^0.28.5",
+    "vitest": "^0.28.5"
   }
 }
