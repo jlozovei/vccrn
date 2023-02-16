@@ -14,10 +14,16 @@ const fontColors = {
   text: baseColors.black
 };
 
+const contextualColors = {
+  error: '#e74c3c',
+  success: '#07bc0c'
+};
+
 const colors = {
   base: baseColors,
   brand: brandColors,
-  font: fontColors
+  font: fontColors,
+  context: contextualColors
 };
 
 export { colors };
