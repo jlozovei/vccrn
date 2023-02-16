@@ -6,6 +6,7 @@
   "keywords": [],
   "author": "Julio Lozovei <jlozovei@gmail.com> (https://jlozovei.dev)",
   "license": "GPL-3.0",
+  "homepage": ".",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
