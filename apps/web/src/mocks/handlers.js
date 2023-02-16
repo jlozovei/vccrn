@@ -15,7 +15,7 @@ const psychologist = {
 };
 
 const handlers = [
-  rest.post('/login', (req, res, ctx) => {
+  rest.post('/auth/login', (req, res, ctx) => {
     const { email, document, password } = req.body;
     const profile = document ? psychologist : user;
 
