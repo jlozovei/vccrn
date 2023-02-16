@@ -5,8 +5,5 @@
   "main": "index.js",
   "keywords": [],
   "author": "Julio Lozovei <jlozovei@gmail.com> (https://jlozovei.dev)",
-  "license": "GPL-3.0",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  }
+  "license": "GPL-3.0"
 }

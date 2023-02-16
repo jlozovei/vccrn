@@ -58,7 +58,7 @@ const StyledProfileItem = styled.li`
           filter: grayscale(100%);
         `}
 
-  svg {
+  img {
     display: block;
     width: 32px;
     height: 32px;
