@@ -15,7 +15,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <StyledFooter>
+    <StyledFooter data-testid="footer">
       <StyledDisclaimer data-testid="footer-disclaimer">
         <StyledContainer>
           <StyledResponsible>

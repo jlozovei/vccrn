@@ -20,7 +20,7 @@ const Header = () => {
   };
 
   return (
-    <StyledHeader>
+    <StyledHeader data-testid="header">
       <StyledContainer>
         <Logo width="130" data-testid="header-logo" />
 
