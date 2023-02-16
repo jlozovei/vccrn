@@ -9,7 +9,7 @@ const isValidCNPJ = (cnpj) => {
 };
 
 const isValidDocument = (documentNumber) => {
-  return isCPF(documentNumber) || isCNPJ(documentNumber);
+  return isValidCPF(documentNumber) || isValidCNPJ(documentNumber);
 };
 
 export { isValidCPF, isValidCNPJ, isValidDocument };
