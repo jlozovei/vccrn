@@ -12,7 +12,8 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{js,json}\"",
+    "test": "turbo run test",
+    "format": "prettier --write \"**/*.{js,jsx,json}\"",
     "prepare": "husky install"
   },
   "devDependencies": {
@@ -45,43 +46,6 @@
       "last 1 safari version"
     ]
   },
-  "jest": {
-    "collectCoverageFrom": [
-      "<rootDir>/src/__mocks__/**/*.js",
-      "<rootDir>/src/components/**/*.js",
-      "<rootDir>/src/helpers/**/*.js"
-    ],
-    "globals": {
-      "__PATH_PREFIX__": ""
-    },
-    "moduleNameMapper": {
-      ".+\\.(css|styl|less|sass|scss)$": "identity-obj-proxy",
-      ".+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__mocks__/file-mock.js"
-    },
-    "modulePaths": [
-      "<rootDir>",
-      "<rootDir>/src/"
-    ],
-    "setupFiles": [
-      "<rootDir>/loadershim.js"
-    ],
-    "setupFilesAfterEnv": [
-      "<rootDir>/setup-test-env.js"
-    ],
-    "testURL": "http://localhost",
-    "testEnvironment": "jsdom",
-    "testPathIgnorePatterns": [
-      "node_modules",
-      "\\.cache",
-      "<rootDir>.*/public"
-    ],
-    "transform": {
-      "^.+\\.js?$": "<rootDir>/jest-preprocess.js"
-    },
-    "transformIgnorePatterns": [
-      "node_modules/(?!(gatsby)/)"
-    ]
-  },
   "prettier": {
     "printWidth": 100,
     "useTabs": false,
@@ -91,10 +55,10 @@
     "trailingComma": "none"
   },
   "lint-staged": {
-    "src/**/*.{js,css}": [
+    "src/**/*.{js,jsx,json}": [
       "npm run format"
     ],
-    "*.js": "eslint --cache --fix"
+    "*.{js,jsx,json}": "eslint --cache --fix"
   },
   "commitlint": {
     "extends": [
