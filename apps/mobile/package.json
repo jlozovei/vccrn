@@ -2,8 +2,26 @@
   "name": "@vccrn/mobile",
   "version": "0.1.0",
   "description": "",
-  "main": "n/a",
+  "main": "node_modules/expo/AppEntry.js",
   "keywords": [],
   "author": "Julio Lozovei <jlozovei@gmail.com> (https://jlozovei.dev)",
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "scripts": {
+    "dev": "expo start --web",
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@expo/webpack-config": "^18.0.1",
+    "expo": "~47.0.12",
+    "expo-status-bar": "~1.4.2",
+    "react": "18.1.0",
+    "react-native": "0.70.5",
+    "react-native-web": "^0.18.12"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9"
+  }
 }
