@@ -11,9 +11,15 @@ const placeholders = {
   document: 'Digite seu documento'
 };
 
+// const regex = {
+//   document:
+//     /([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})/g
+// };
+
 const strings = {
   errors,
   placeholders
+  // regex
 };
 
 export { strings };

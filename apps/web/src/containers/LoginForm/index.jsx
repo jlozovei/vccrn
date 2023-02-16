@@ -5,6 +5,7 @@ import { isValidEmail, isValidDocument } from '@vccrn/validators';
 import { ReactComponent as User } from '@vccrn/assets/user.svg';
 import { ReactComponent as Psychologist } from '@vccrn/assets/psychologist.svg';
 
+import { documentMask } from '@/utils';
 import { FormRow, FormField, FormSubmit } from '@/components';
 import { StyledContainer } from '@/styled';
 import {
@@ -19,13 +20,22 @@ import { strings } from './strings';
 
 const LoginForm = () => {
   const [profile, setProfile] = useState('user');
+  const [loading, setLoading] = useState(false);
+  const [documentValue, setDocumentValue] = useState('');
 
   const {
     register,
     handleSubmit,
     reset,
+    onChange,
     formState: { errors }
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      email: '',
+      document: '',
+      password: ''
+    }
+  });
 
   const updateProfile = (profile) => {
     reset();
@@ -33,7 +43,26 @@ const LoginForm = () => {
   };
 
   const onSubmit = (data) => {
-    console.log('submit form', data);
+    setLoading(true);
+
+    try {
+      fetch('/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          const welcome = response.type === 'pacient' ? 'Bem-vindo,' : 'Bem-vindo, Dr.';
+
+          setLoading(false);
+          reset();
+          alert(`${welcome} ${response.firstName}`);
+        });
+    } catch (err) {
+      console.error(err);
+      setLoading(false);
+    }
   };
 
   return (
@@ -91,12 +120,20 @@ const LoginForm = () => {
                 aria-invalid={errors.document ? 'true' : 'false'}
                 error={errors.document?.message}
                 required={profile !== 'user'}
+                inputmode="numeric"
+                maxLength={18}
+                value={documentValue}
                 {...register('document', {
+                  maxLength: {
+                    value: 18,
+                    message: strings.errors.document
+                  },
                   required: {
                     value: profile !== 'user',
                     message: strings.errors.required
                   },
-                  validate: (value) => isValidDocument(value) || strings.errors.document
+                  validate: (value) => isValidDocument(value) || strings.errors.document,
+                  onChange: (event) => setDocumentValue(documentMask(event.target.value))
                 })}
               />
             )}
@@ -120,7 +157,7 @@ const LoginForm = () => {
             </StyledForgotPassword>
           </StyledFormContainer>
           <FormRow>
-            <FormSubmit text="Entrar" />
+            <FormSubmit text="Entrar" isLoading={loading} />
           </FormRow>
         </form>
 
