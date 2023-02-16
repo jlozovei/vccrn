@@ -21,6 +21,7 @@ const StyledSection = styled.section`
     a {
       display: inline-block;
       color: ${colors.brand.primary};
+      cursor: pointer;
     }
 
     button {
@@ -85,11 +86,18 @@ const StyledCreateAccount = styled(StyledRow)`
   margin-top: 32px;
 `;
 
+const StyledUserInfo = styled(StyledRow)`
+  margin: 64px 0;
+  padding-top: 32px;
+  border-top: 1px solid ${colors.base.gray};
+`;
+
 export {
   StyledSection,
   StyledProfile,
   StyledProfileItem,
   StyledFormContainer,
   StyledForgotPassword,
-  StyledCreateAccount
+  StyledCreateAccount,
+  StyledUserInfo
 };

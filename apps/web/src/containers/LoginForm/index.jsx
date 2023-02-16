@@ -5,6 +5,7 @@ import { isValidEmail, isValidDocument } from '@vccrn/validators';
 import { ReactComponent as User } from '@vccrn/assets/user.svg';
 import { ReactComponent as Psychologist } from '@vccrn/assets/psychologist.svg';
 
+import { login } from '@/services';
 import { documentMask } from '@/utils';
 import { FormRow, FormField, FormSubmit } from '@/components';
 import { StyledContainer } from '@/styled';
@@ -14,7 +15,8 @@ import {
   StyledProfileItem,
   StyledFormContainer,
   StyledForgotPassword,
-  StyledCreateAccount
+  StyledCreateAccount,
+  StyledUserInfo
 } from './styled';
 import { strings } from './strings';
 
@@ -22,6 +24,7 @@ const LoginForm = () => {
   const [profile, setProfile] = useState('user');
   const [loading, setLoading] = useState(false);
   const [documentValue, setDocumentValue] = useState('');
+  const [userLogged, setUserLogged] = useState(null);
 
   const {
     register,
@@ -42,26 +45,21 @@ const LoginForm = () => {
     setProfile(profile);
   };
 
-  const onSubmit = (data) => {
+  const onSubmit = async (credentials) => {
     setLoading(true);
 
     try {
-      fetch('/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      })
-        .then((response) => response.json())
-        .then((response) => {
-          const welcome = response.type === 'pacient' ? 'Bem-vindo,' : 'Bem-vindo, Dr.';
+      const response = await login(credentials);
 
-          setLoading(false);
-          reset();
-          alert(`${welcome} ${response.firstName}`);
-        });
+      if (response?.data) {
+        setLoading(false);
+        setUserLogged(response.data);
+        reset();
+      }
     } catch (err) {
       console.error(err);
       setLoading(false);
+      setUserLogged(null);
     }
   };
 
@@ -78,7 +76,7 @@ const LoginForm = () => {
                   onClick={() => updateProfile('psychologist')}
                   active={profile !== 'user'}
                 >
-                  <Psychologist />
+                  {/* <Psychologist /> */}
                   Psicólogo
                 </StyledProfileItem>
 
@@ -86,7 +84,7 @@ const LoginForm = () => {
                   onClick={() => updateProfile('user')}
                   active={profile === 'user'}
                 >
-                  <User />
+                  {/* <User /> */}
                   Paciente
                 </StyledProfileItem>
               </StyledProfile>
@@ -164,6 +162,12 @@ const LoginForm = () => {
         <StyledCreateAccount>
           Não é cadastrado? <a>Crie uma conta</a>
         </StyledCreateAccount>
+
+        {userLogged && (
+          <StyledUserInfo data-testid="user-info">
+            Bem-vindo, {userLogged.firstName}. <a onClick={() => setUserLogged(null)}>Sair</a>
+          </StyledUserInfo>
+        )}
       </StyledContainer>
     </StyledSection>
   );
