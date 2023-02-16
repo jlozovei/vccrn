@@ -10,20 +10,32 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "test": "vitest run --coverage",
+    "test:interactive": "vitest",
     "start": "npm run dev"
   },
   "dependencies": {
     "@vccrn/assets": "0.1.0",
     "@vccrn/tokens": "0.1.0",
+    "@vccrn/validators": "0.1.0",
+    "polished": "^4.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.43.1",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.1.0",
-    "vite": "^4.1.0",
-    "vite-plugin-svgr": "^2.4.0"
+    "@vitest/coverage-c8": "^0.28.5",
+    "@vitest/ui": "latest",
+    "jsdom": "latest",
+    "vite": "latest",
+    "vite-plugin-svgr": "^2.4.0",
+    "vitest": "latest"
   }
 }
