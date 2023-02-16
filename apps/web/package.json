@@ -12,6 +12,7 @@
     "preview": "vite preview",
     "test": "vitest run --coverage",
     "test:interactive": "vitest",
+    "lint": "eslint --cache --fix",
     "start": "npm run dev",
     "update": "npx msw init public --no-save"
   },

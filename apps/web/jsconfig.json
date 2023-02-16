@@ -2,6 +2,6 @@
   "compilerOptions": {
     "jsx": "preserve",
     "baseUrl": "./src",
-    "strict": true,
+    "strict": true
   }
 }
