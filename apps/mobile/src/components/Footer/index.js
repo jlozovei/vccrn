@@ -1,5 +1,5 @@
 import { View, Text, Image } from 'react-native';
-import blankAlert from '@vccrn/assets/blank-alert.svg';
+import BlankAlert from '@vccrn/assets/blank-alert.png';
 
 import { Logo } from '@/components/Logo';
 
@@ -20,7 +20,7 @@ const Footer = () => {
 
         <View style={base.container}>
           <View style={styles.noticeWrapper}>
-            <Image source={blankAlert} style={styles.noticeImage} />
+            <Image source={BlankAlert} style={styles.noticeImage} />
 
             <Text style={styles.noticeText}>
               Atenção: este site não oferece tratamento ou aconselhamento imediato para pessoas em
