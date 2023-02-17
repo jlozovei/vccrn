@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
+import { strings } from '@vccrn/strings';
 import { isValidEmail, isValidDocument } from '@vccrn/validators';
 import userIcon from '@vccrn/assets/user.svg';
 import psychologistIcon from '@vccrn/assets/psychologist.svg';
@@ -18,7 +19,6 @@ import {
   StyledCreateAccount,
   StyledUserInfo
 } from './styled';
-import { strings } from './strings';
 
 const LoginForm = () => {
   const [profile, setProfile] = useState('user');
@@ -155,7 +155,7 @@ const LoginForm = () => {
             </StyledForgotPassword>
           </StyledFormContainer>
           <FormRow>
-            <FormSubmit text="Entrar" isLoading={loading} />
+            <FormSubmit text={strings.labels.login} isLoading={loading} />
           </FormRow>
         </form>
 
@@ -165,7 +165,8 @@ const LoginForm = () => {
 
         {userLogged && (
           <StyledUserInfo data-testid="user-info">
-            Bem-vindo, {userLogged.firstName}. <a onClick={() => setUserLogged(null)}>Sair</a>
+            Bem-vindo, {userLogged.firstName}.{' '}
+            <a onClick={() => setUserLogged(null)}>{strings.labels.logout}</a>
           </StyledUserInfo>
         )}
       </StyledContainer>

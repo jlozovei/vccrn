@@ -8,7 +8,9 @@ const errors = {
 const labels = {
   email: 'Email',
   document: 'CFP/CNPJ',
-  password: 'Senha'
+  password: 'Senha',
+  login: 'Entrar',
+  logout: 'Sair'
 };
 
 const placeholders = {
