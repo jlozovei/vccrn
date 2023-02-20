@@ -58,8 +58,8 @@ describe('containers/LoginForm', () => {
       expect(screen.getByText(strings.labels.logout)).toBeInTheDocument();
     });
 
-    await userEvent.click(screen.getByText(strings.labels.login));
+    await userEvent.click(screen.getByText(strings.labels.logout));
 
-    await expect(screen.queryByTestId('user-info')).not.toBeInTheDocument();
+    await waitFor(() => expect(screen.queryByTestId('user-info')).not.toBeInTheDocument());
   });
 });
