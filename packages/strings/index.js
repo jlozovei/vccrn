@@ -5,6 +5,14 @@ const errors = {
   email: 'Email inválido.'
 };
 
+const labels = {
+  email: 'Email',
+  document: 'CFP/CNPJ',
+  password: 'Senha',
+  login: 'Entrar',
+  logout: 'Sair'
+};
+
 const placeholders = {
   email: 'Digite seu email',
   password: 'Digite sua senha',
@@ -18,6 +26,7 @@ const placeholders = {
 
 const strings = {
   errors,
+  labels,
   placeholders
   // regex
 };

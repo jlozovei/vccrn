@@ -18,9 +18,11 @@
     "update": "npx msw init public --no-save"
   },
   "dependencies": {
-    "@vccrn/assets": "0.1.0",
-    "@vccrn/tokens": "0.1.0",
-    "@vccrn/validators": "0.1.0",
+    "@vccrn/assets": "*",
+    "@vccrn/masks": "*",
+    "@vccrn/strings": "*",
+    "@vccrn/tokens": "*",
+    "@vccrn/validators": "*",
     "axios": "^1.3.3",
     "msw": "^1.0.1",
     "polished": "^4.2.2",

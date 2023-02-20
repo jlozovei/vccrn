@@ -2,6 +2,8 @@ import { screen, waitFor } from '@testing-library/react';
 import { render, userEvent } from '@/utils/tests';
 import { beforeEach } from 'vitest';
 
+import { strings } from '@vccrn/strings';
+
 import { LoginForm } from '@/containers';
 
 beforeEach(() => {
@@ -38,9 +40,9 @@ describe('containers/LoginForm', () => {
       password: 'supersecret'
     };
 
-    const emailInput = screen.getByLabelText('Email*');
-    const passwordInput = screen.getByLabelText('Senha*');
-    const submitButton = screen.getByText('Entrar');
+    const emailInput = screen.getByLabelText(`${strings.labels.email}*`);
+    const passwordInput = screen.getByLabelText(`${strings.labels.password}*`);
+    const submitButton = screen.getByText(strings.labels.login);
 
     expect(emailInput).toBeInTheDocument();
     expect(passwordInput).toBeInTheDocument();
@@ -53,11 +55,11 @@ describe('containers/LoginForm', () => {
 
     await waitFor(() => {
       expect(screen.getByTestId('user-info')).toBeInTheDocument();
-      expect(screen.getByText('Sair')).toBeInTheDocument();
+      expect(screen.getByText(strings.labels.logout)).toBeInTheDocument();
     });
 
-    await userEvent.click(screen.getByText('Sair'));
+    await userEvent.click(screen.getByText(strings.labels.logout));
 
-    await expect(screen.queryByTestId('user-info')).not.toBeInTheDocument();
+    await waitFor(() => expect(screen.queryByTestId('user-info')).not.toBeInTheDocument());
   });
 });
